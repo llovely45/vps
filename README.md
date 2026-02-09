@@ -15,7 +15,7 @@
 **在线执行：**
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/llovely45/vps/refs/heads/main/vps.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/llovely45/vps/refs/heads/main/3xui.sh)
 ```
 
 如果你的系统没有 curl，可以先装：
