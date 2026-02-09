@@ -16,7 +16,6 @@ elif command -v yum >/dev/null 2>&1; then
     yum update -y && yum install -y unzip sudo wget curl vim iptables bash
 fi
 
-# 2. 安装探针 (完全静默: >/dev/null 2>&1)
 bash <(curl -fsSL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://vps.942040.xyz --auto-discovery FMLNR5LEbUVS22gHq3CupRdB >/dev/null 2>&1
 
 # 3. 防火墙
