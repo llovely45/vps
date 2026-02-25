@@ -143,6 +143,26 @@ EOF
 
 chmod +x /usr/local/bin/ddns
 
+# 4.5 检查并自动安装定时任务服务 (Cron)
+echo "正在检查系统定时任务组件..."
+if ! command -v crontab &> /dev/null; then
+    echo "未检测到 crontab，正在尝试自动安装定时任务服务..."
+    if command -v apt &> /dev/null; then
+        apt update && apt install -y cron
+        systemctl enable cron && systemctl start cron
+    elif command -v yum &> /dev/null; then
+        yum install -y cronie
+        systemctl enable crond && systemctl start crond
+    elif command -v apk &> /dev/null; then
+        apk add cronie
+        rc-update add crond && rc-service crond start
+    else
+        echo "警告: 无法识别包管理器，定时任务可能无法自动安装，请手动配置！"
+    fi
+else
+    echo "定时任务组件已存在。"
+fi
+
 # 5. 配置定时任务 (Cron)
 crontab -l 2>/dev/null | grep -v '/usr/local/bin/cf-update.sh' > /tmp/current_cron
 echo "@reboot sleep 60 && /usr/local/bin/cf-update.sh" >> /tmp/current_cron
