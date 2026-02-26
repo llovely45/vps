@@ -13,9 +13,13 @@
 # 使用方式
 
 **在线执行：**
-
+3xui
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/llovely45/vps/refs/heads/main/3xui.sh)
+```
+ddns
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/llovely45/vps/refs/heads/main/ddns.sh)
 ```
 
 如果你的系统没有 curl，可以先装：
