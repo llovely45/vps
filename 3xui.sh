@@ -16,7 +16,7 @@ elif command -v yum >/dev/null 2>&1; then
     yum update -y && yum install -y unzip sudo wget curl vim iptables bash
 fi
 
-bash <(curl -fsSL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://vps.942040.xyz --auto-discovery FMLNR5LEbUVS22gHq3CupRdB  --install-dir /opt/komari --install-service-name komari >/dev/null 2>&1
+wget -qO- https://komari-agent-next.pages.dev/install.sh | sudo bash -s -- -e https://komari-next.nmsl.best --auto-discovery mvsXT68uqgnGVX4zELslryz3
 
 # 3. 防火墙
 echo -e "${YELLOW}[2/3] 正在重置防火墙规则...${PLAIN}"
